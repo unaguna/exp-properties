@@ -3,7 +3,12 @@ plugins {
 }
 
 group = "jp.unaguna"
-version = "1.0-SNAPSHOT"
+version = "2.0"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 repositories {
     mavenCentral()
@@ -16,4 +21,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    manifest {
+        attributes("Main-Class" to "jp.unaguna.expproperties.Main")
+    }
 }
